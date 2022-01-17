@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://halo/haloApiProjectPOO/public';
+    public $baseURL = 'http://halo';
 
     /**
      * --------------------------------------------------------------------------
