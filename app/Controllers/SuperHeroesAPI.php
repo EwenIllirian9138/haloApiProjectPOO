@@ -9,12 +9,16 @@ class SuperHeroesAPI extends Controller
 {
     public function index (){
 
-        $arrSuperHeroes = array();
-
         //à commenter une fois la bdd remplie
-        $this->seedsBdd();
+        //$this->seedsBdd();
 
-        echo view ('superHeroes_list');
+        $objSuperHeroModel = new SuperHeroes_model();
+
+        $data['title'] = "Liste des supers heros";
+
+        $data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
+
+        echo view ('superHeroes_list',$data);
 
     }
 
@@ -30,11 +34,13 @@ class SuperHeroesAPI extends Controller
 
             $decode = json_decode($resp,false);
 
+            // $b = $a ? $a : 1;
+
             $data = ['Name'=> $decode->name,
                 'AlterEgo'=> $decode->biography->{"alter-egos"},
-                'Aliases'=> $decode->biography->aliases[0],
-                'PlaceOfBirth'=>$decode->biography->{"place-of-birth"},
-                'FirstAppearance'=>$decode->biography->{"first-appearance"},
+                'Aliases'=> $decode->biography-> aliases[0] = $decode->biography-> aliases[0] === '-' ? null :$decode->biography-> aliases[0],
+                'PlaceOfBirth'=>$decode->biography->{"place-of-birth"} = $decode->biography->{"place-of-birth"} === '-' ? null : $decode->biography->{"place-of-birth"} ,
+                'FirstAppearance'=>$decode->biography->{"first-appearance"} = $decode->biography->{"first-appearance"} === '-' ? null : $decode->biography->{"first-appearance"},
                 'Alignment'=>$decode->biography->alignment,
                 'ImageLink'=>$decode->image->url
 
