@@ -13,5 +13,7 @@ class SuperHeroes_model extends Model
 
     protected $allowedFields = ['Name', 'AlterEgo', 'Aliases', 'PlaceOfBirth','FirstAppearance','Alignment','ImageLink'];
 
+    protected $returnType    = 'App\Entities\SuperHeroes_entity';
+
     protected $useTimestamps = false;
 }
