@@ -11,7 +11,7 @@ class SuperHeroes_model extends Model
 
     protected $primaryKey = 'IdSuperHero';
 
-    protected $allowedFields = ['Name', 'AlterEgo', 'Aliases', 'PlaceOfBirth','FirstAppearance','Alignment','ImageLink'];
+    protected $allowedFields = ['Name', 'AlterEgo', 'Aliases', 'PlaceOfBirth','FirstAppearance','Alignment','ImageLink', 'IdApi', 'Published'];
 
     protected $returnType    = 'App\Entities\SuperHeroes_entity';
 

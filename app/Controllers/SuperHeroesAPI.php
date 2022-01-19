@@ -22,6 +22,10 @@ class SuperHeroesAPI extends Controller
 
     }
 
+    /**Description : Cette fonction remplit la bdd avec le contenu de l'API,
+     * param : aucun,
+     * auteur : Ewen BILLOT*
+     */
     public function seedsBdd (){
 
         $model = new SuperHeroes_model();
@@ -34,15 +38,15 @@ class SuperHeroesAPI extends Controller
 
             $decode = json_decode($resp,false);
 
-            // $b = $a ? $a : 1;
-
             $data = ['Name'=> $decode->name,
                 'AlterEgo'=> $decode->biography->{"alter-egos"},
                 'Aliases'=> $decode->biography-> aliases[0] = $decode->biography-> aliases[0] === '-' ? null :$decode->biography-> aliases[0],
                 'PlaceOfBirth'=>$decode->biography->{"place-of-birth"} = $decode->biography->{"place-of-birth"} === '-' ? null : $decode->biography->{"place-of-birth"} ,
                 'FirstAppearance'=>$decode->biography->{"first-appearance"} = $decode->biography->{"first-appearance"} === '-' ? null : $decode->biography->{"first-appearance"},
                 'Alignment'=>$decode->biography->alignment,
-                'ImageLink'=>$decode->image->url
+                'ImageLink'=>$decode->image->url,
+                'IdApi'=>$decode->id,
+                'Published'=>1
 
             ];
             $model -> save($data);
