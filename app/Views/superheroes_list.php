@@ -27,6 +27,7 @@
             <td><?php echo $row->Alignment;?></td>
             <td><?php echo $row->Aliases = $row->Aliases == null ? " RAS////// " : $row->Aliases;?></td>
             <td><?php echo $row->PlaceOfBirth = $row->PlaceOfBirth == null ? "RAS/////" : $row->PlaceOfBirth;?></td>
+            <td><?php echo $row->PlaceOfBirth = $row->PlaceOfBirth == null ? "RAS/////" : $row->PlaceOfBirth;?></td>
         </tr>
     <?php } ?>
     </tbody>
