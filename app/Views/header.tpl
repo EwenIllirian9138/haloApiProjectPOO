@@ -42,10 +42,10 @@
                 </li>
                 <li>
                     {if isset( $smarty.session.IsLoggedIn)}
-                        Bonjour {$smarty.session.UserName} <a href='LogOut'>Se déconnecter</a>
+                        Bonjour {$smarty.session.UserName} <a href="{site_url('/LogIn/LogOut')}">Se déconnecter</a>
 
                     {else}
-                        <a href='SignIn'>S'inscrire</a><a href='SignUp'>Se Connecter</a>
+                        <a href="{site_url('/LogIn/SignIn')}">S'inscrire</a><a href="{site_url('/LogIn/SignUp')}">Se Connecter</a>
                     {/if}
                 </li>
             </ul>

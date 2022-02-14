@@ -7,9 +7,12 @@ use App\Models\User_model;
 use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 
-Class SignIn extends BaseController
+Class LogIn extends BaseController
 {
-    public function index()
+    public function index(){}
+
+
+    public function SignIn()
     {
         helper('form');
 
@@ -71,4 +74,51 @@ Class SignIn extends BaseController
         //echo view('signin_view.php', $this->_data);
         $this->display( 'signin.tpl');
     }
+
+    public function SignUp()
+    {
+        helper('form');
+
+        $validation = \Config\Services::validation();
+
+        $validation->setRule('EMail','Email', 'required');
+        $validation->setRule('Password', 'Mot de Passe', 'required');
+
+        $arrErrors = array();
+        if (count($this->request->getPost()) > 0){
+            if ($validation->run($this->request->getPost())) {
+                $objUserModel = new User_model();
+                $isUser = $objUserModel->where('EMail', $this->request->getPost('EMail'))->where('Password', $this->request->getPost('Password'))->findAll(1);
+                if (isset($isUser[0])){
+                    $UserInfo = ['UserName' => $isUser[0]->UserName, 'IsLoggedIn' => true];
+                    $this->session->set($UserInfo);
+                    return redirect()->to('/Homepage');
+
+                }else {
+                    $arrErrors[0] = "Email ou Mot de Passe incorrect";
+                }
+            }
+            else {
+                $arrErrors = $validation->getErrors();
+            }
+        }
+
+        $data['title'] = "Se Connecter";
+        $data['arrErrors'] = $arrErrors;
+        $data['form_open'] = form_open("SignUp");
+        $data['label_email'] = form_label("Email", "EMail");
+        $data['form_email'] = form_input("EMail", "", "id='EMail'");
+        $data['label_password'] = form_label("Mot de Passe","Password");
+        $data['form_password'] = form_input("Password", "", "id='Password'", 'password');
+        $data['form_submit'] = form_submit("submit", "Envoyer");
+        $data['form_close'] = form_close();
+        echo view('signup_view.php', $data);
+    }
+
+    public function LogOut()
+    {
+        $this->session->destroy();
+        return redirect()->to('/Homepage');
+    }
 }
+?>
