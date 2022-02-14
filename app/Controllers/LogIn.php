@@ -62,7 +62,7 @@ Class LogIn extends BaseController
         }
         $this->_data['arrErrors'] = $arrErrors;
 
-        $this->_data['form_open'] = form_open("SignIn");
+        $this->_data['form_open'] = form_open(site_url('/LogIn/SignIn'));
         $this->_data['label_email'] = form_label("Email", "EMail");
         $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
         $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
@@ -105,7 +105,7 @@ Class LogIn extends BaseController
 
         $this->_data['title'] = "Se Connecter";
         $this->_data['arrErrors'] = $arrErrors;
-        $this->_data['form_open'] = form_open("SignUp");
+        $this->_data['form_open'] = form_open(site_url('/LogIn/SignUp'));
         $this->_data['label_email'] = form_label("Email", "EMail");
         $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
         $this->_data['label_password'] = form_label("Mot de Passe","Password");
