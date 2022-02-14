@@ -22,7 +22,7 @@ Class SignUp extends BaseController
                 $objUserModel = new User_model();
                 $isUser = $objUserModel->where('EMail', $this->request->getPost('EMail'))->where('Password', $this->request->getPost('Password'))->findAll(1);
                 if (isset($isUser[0])){
-                    $UserInfo = ['username' => $this->request->getPost('UserName'), 'IsLoggedIn' => true];
+                    $UserInfo = ['UserName' => $isUser[0]->UserName, 'IsLoggedIn' => true];
                     $this->session->set($UserInfo);
                     return redirect()->to('/Homepage');
 
@@ -41,7 +41,7 @@ Class SignUp extends BaseController
         $data['label_email'] = form_label("Email", "EMail");
         $data['form_email'] = form_input("EMail", "", "id='EMail'");
         $data['label_password'] = form_label("Mot de Passe","Password");
-        $data['form_password'] = form_input("Password", "", "id='Password'");
+        $data['form_password'] = form_input("Password", "", "id='Password'", 'password');
         $data['form_submit'] = form_submit("submit", "Envoyer");
         $data['form_close'] = form_close();
         echo view('signup_view.php', $data);
