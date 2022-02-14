@@ -5,9 +5,10 @@ namespace App\Controllers;
 use App\Models\User_model;
 use CodeIgniter\Controller;
 
-Class SignUp extends Controller
+Class SignUp extends BaseController
 {
     public function index(){
+
         helper('form');
 
         $validation = \Config\Services::validation();
@@ -21,6 +22,8 @@ Class SignUp extends Controller
                 $objUserModel = new User_model();
                 $isUser = $objUserModel->where('EMail', $this->request->getPost('EMail'))->where('Password', $this->request->getPost('Password'))->findAll(1);
                 if (isset($isUser[0])){
+                    $UserInfo = ['username' => $this->request->getPost('UserName'), 'IsLoggedIn' => true];
+                    $this->session->set($UserInfo);
                     return redirect()->to('/Homepage');
 
                 }else {

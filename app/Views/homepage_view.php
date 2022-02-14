@@ -8,9 +8,13 @@
 </head>
 <body>
 <h1>
-    <?php echo $title; ?>
+    <?php echo $title;?>
 </h1>
-<div><table><tr><td><a href="Homepage">Accueil</a></td><td><a href="SuperHeroesAPI">Liste des SuperHéros</a></td><td><a href="SignIn">S'inscrire</a></td><td><a href="SignUp">Se Connecter</a></td></tr></table></div>
+<div><table><tr><td><a href="Homepage">Accueil</a></td><td><a href="SuperHeroesAPI">Liste des SuperHéros</a></td>
+            <?php if($_SESSION['IsLoggedIn'] === true)
+            {
+                echo "Bonjour ".$_SESSION['username']; echo "<td><a href='LogOut'>Se déconnecter</a></td>";
+            }else{echo "<td><a href='SignIn'>S'inscrire</a></td><td><a href='SignUp'>Se Connecter</a></td>";} ?></tr></table></div>
 <div style="section:flex; flex-direction: row;">
     <?php for($i = 0 ; $i<=2 ; $i++){ ?>
     <div>

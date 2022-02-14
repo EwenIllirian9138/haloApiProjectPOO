@@ -4,10 +4,12 @@ namespace App\Controllers;
 use App\Models\SuperHeroes_model;
 use CodeIgniter\Controller;
 
-Class Homepage extends Controller
+Class Homepage extends BaseController
 {
     public function index()
     {
+
+
         $data['title'] = "Accueil";
 
         $objNewSuperHeroesModel = new SuperHeroes_model();
