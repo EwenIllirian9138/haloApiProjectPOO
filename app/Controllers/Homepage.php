@@ -16,6 +16,6 @@ Class Homepage extends BaseController
         $this->_data['arrNewSuperHeroes'] = $objNewSuperHeroesModel->orderBy('IdSuperHero','desc')->where('Published',1)->findAll();
 
         //echo view('homepage_view', $data);
-        $this->display( 'home.tpl' );
+        $this->display( 'home.tpl');
     }
 }

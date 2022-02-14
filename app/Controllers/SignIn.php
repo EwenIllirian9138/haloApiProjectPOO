@@ -5,14 +5,15 @@ namespace App\Controllers;
 use App\Entities\User_entity;
 use App\Models\User_model;
 use CodeIgniter\Controller;
+use App\Controllers\BaseController;
 
-Class SignIn extends Controller
+Class SignIn extends BaseController
 {
     public function index()
     {
         helper('form');
 
-        $data['title'] = "Inscription";
+        $this->_data['title'] = "Inscription";
 
         $validation = \Config\Services::validation();
 
@@ -56,17 +57,18 @@ Class SignIn extends Controller
                 $arrErrors = $validation->getErrors();
             }
         }
-        $data['arrErrors'] = $arrErrors;
+        $this->_data['arrErrors'] = $arrErrors;
 
-        $data['form_open'] = form_open("SignIn");
-        $data['label_email'] = form_label("Email", "EMail");
-        $data['form_email'] = form_input("EMail", "", "id='EMail'");
-        $data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
-        $data['form_username'] = form_input("UserName", "", "id='UserName'");
-        $data['label_password'] = form_label("Mot de Passe", "Password");
-        $data['form_password'] = form_input("Password", "", "id='Password'");
-        $data['form_submit'] = form_submit("submit", "Envoyer");
-        $data['form_close'] = form_close();
-        echo view('signin_view.php', $data);
+        $this->_data['form_open'] = form_open("SignIn");
+        $this->_data['label_email'] = form_label("Email", "EMail");
+        $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
+        $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
+        $this->_data['form_username'] = form_input("UserName", "", "id='UserName'");
+        $this->_data['label_password'] = form_label("Mot de Passe", "Password");
+        $this->_data['form_password'] = form_input("Password", "", "id='Password'");
+        $this->_data['form_submit'] = form_submit("submit", "Envoyer");
+        $this->_data['form_close'] = form_close();
+        //echo view('signin_view.php', $this->_data);
+        $this->display( 'signin.tpl');
     }
 }

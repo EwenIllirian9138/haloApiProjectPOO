@@ -40,6 +40,14 @@
                         <a class="dropdown-item" href="#">Another action</a>
                     </div>
                 </li>
+                <li>
+                    {if isset( $smarty.session.IsLoggedIn)}
+                        Bonjour {$smarty.session.UserName} <a href='LogOut'>Se déconnecter</a>
+
+                    {else}
+                        <a href='SignIn'>S'inscrire</a><a href='SignUp'>Se Connecter</a>
+                    {/if}
+                </li>
             </ul>
         </div>
     </div>
