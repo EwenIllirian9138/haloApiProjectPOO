@@ -4,7 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\SuperHeroes_model;
 
-class SuperHeroesAPI extends Controller
+class superHeroList extends Controller
 
 {
     public function index (){
@@ -47,7 +47,6 @@ class SuperHeroesAPI extends Controller
                 'ImageLink'=>$decode->image->url,
                 'IdApi'=>$decode->id,
                 'Published'=>1
-
             ];
             $model -> save($data);
         }
