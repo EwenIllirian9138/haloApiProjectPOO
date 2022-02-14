@@ -20,8 +20,9 @@ Class SignUp extends Controller
             if ($validation->run($this->request->getPost())) {
                 $objUserModel = new User_model();
                 $isUser = $objUserModel->where('EMail', $this->request->getPost('EMail'))->where('Password', $this->request->getPost('Password'))->findAll(1);
-                if (isset($isUser)){
+                if (isset($isUser[0])){
                     return redirect()->to('/Homepage');
+
                 }else {
                     $arrErrors[0] = "Email ou Mot de Passe incorrect";
                 }
@@ -32,7 +33,7 @@ Class SignUp extends Controller
         }
 
         $data['title'] = "Se Connecter";
-        $data['arrerrors'] = $arrErrors;
+        $data['arrErrors'] = $arrErrors;
         $data['form_open'] = form_open("SignUp");
         $data['label_email'] = form_label("Email", "EMail");
         $data['form_email'] = form_input("EMail", "", "id='EMail'");
