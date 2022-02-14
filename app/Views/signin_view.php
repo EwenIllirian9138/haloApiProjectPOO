@@ -18,6 +18,19 @@
     echo $form_password;
     echo $form_submit;
     echo $form_close;
+
+    if (count($arrErrors) > 0){
+        ?>
+<div>
+    <?php
+        foreach($arrErrors as $strError){
+            echo "<p>".$strError."</p>";
+        }
+        ?>
+</div>
+<?php
+    }
 ?>
+
 </body>
 </html>

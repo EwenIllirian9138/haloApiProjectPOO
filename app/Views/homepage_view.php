@@ -10,7 +10,7 @@
 <h1>
     <?php echo $title; ?>
 </h1>
-<div><table><tr><td><a href="Homepage">Accueil</a></td><td><a href="SuperHeroesAPI">Liste des SuperHéros</a></td></tr></table></div>
+<div><table><tr><td><a href="Homepage">Accueil</a></td><td><a href="SuperHeroesAPI">Liste des SuperHéros</a></td><td><a href="SignIn">S'inscrire</a></td></tr></table></div>
 <div style="section:flex; flex-direction: row;">
     <?php for($i = 0 ; $i<=2 ; $i++){ ?>
     <div>

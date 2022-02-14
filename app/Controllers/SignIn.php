@@ -2,18 +2,40 @@
 
 namespace App\Controllers;
 
+use App\Entities\User_entity;
+use App\Models\User_model;
 use CodeIgniter\Controller;
 
 Class SignIn extends Controller
 {
     public function index()
     {
-        $objNewUserModel = new User_Model();
-
         helper('form');
 
         $data['title'] = "Inscription";
-        $data['form_open'] = form_open("halo/SignIn");
+
+        $validation = \Config\Services::validation();
+
+        $validation->setRule('EMail', 'Email', 'required');
+        $validation->setRule('UserName', "Nom d'Utilisateur", 'required');
+        $validation->setRule('Password', 'Mot de Passe', 'required');
+
+        $arrErrors = array();
+        if (count($this->request->getPost()) > 0){
+            if ($validation->run($this->request->getPost())) {
+                $objNewUserModel = new User_model();
+                $objNewUser = new User_entity();
+                $objNewUser->fill($this->request->getPost());
+                $objNewUserModel->save($objNewUser);
+                return redirect()->to('/Homepage');
+            }
+            else {
+                $arrErrors = $validation->getErrors();
+            }
+        }
+        $data['arrErrors'] = $arrErrors;
+
+        $data['form_open'] = form_open("SignIn");
         $data['label_email'] = form_label("Email", "EMail");
         $data['form_email'] = form_input("EMail", "", "id='EMail'");
         $data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
