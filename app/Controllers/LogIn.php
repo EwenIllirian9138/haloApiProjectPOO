@@ -103,16 +103,17 @@ Class LogIn extends BaseController
             }
         }
 
-        $data['title'] = "Se Connecter";
-        $data['arrErrors'] = $arrErrors;
-        $data['form_open'] = form_open("SignUp");
-        $data['label_email'] = form_label("Email", "EMail");
-        $data['form_email'] = form_input("EMail", "", "id='EMail'");
-        $data['label_password'] = form_label("Mot de Passe","Password");
-        $data['form_password'] = form_input("Password", "", "id='Password'", 'password');
-        $data['form_submit'] = form_submit("submit", "Envoyer");
-        $data['form_close'] = form_close();
-        echo view('signup_view.php', $data);
+        $this->_data['title'] = "Se Connecter";
+        $this->_data['arrErrors'] = $arrErrors;
+        $this->_data['form_open'] = form_open("SignUp");
+        $this->_data['label_email'] = form_label("Email", "EMail");
+        $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
+        $this->_data['label_password'] = form_label("Mot de Passe","Password");
+        $this->_data['form_password'] = form_input("Password", "", "id='Password'", 'password');
+        $this->_data['form_submit'] = form_submit("submit", "Envoyer");
+        $this->_data['form_close'] = form_close();
+        //echo view('signup_view.php', $data);
+        $this->display( 'signup.tpl');
     }
 
     public function LogOut()
