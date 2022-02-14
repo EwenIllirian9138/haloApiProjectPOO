@@ -111,7 +111,10 @@
         <label>Lieu de naissance : </label> <label id="PlaceOfBirthLabel"></label> <br />
         <label>Première apparition : </label> <label id="FirstAppearanceLabel"></label> <br />
         <label>Alignement : </label> <label id="AlignmentLabel"></label> <br /><br />
-        <button id="EditButton" disabled> Modifier </button>
+        <form method="POST" action="EditForm.php">
+            <button id="EditButton" disabled> Modifier </button>
+        </form>
+
     </div>
 </div>
 </body>
