@@ -27,21 +27,26 @@ Class SignIn extends Controller
                 $objNewUser = new User_entity();
                 $objNewUser->fill($this->request->getPost());
                 $arrUser = $objNewUserModel->findAll();
-                $alreadyExist = false;
+                $problemDetected = false;
                 foreach($arrUser as $strUser)
                 {
+                    if(strlen($objNewUser->Password) < 8)
+                    {
+                        $arrErrors[0] = "Mot de Passe trop court";
+                        $problemDetected = true;
+                    }
                     if($objNewUser->UserName == $strUser->UserName)
                     {
                         $arrErrors[0] = "Ce nom d'utilisateur est déjà utilisé";
-                        $alreadyExist = true;
+                        $problemDetected = true;
                     }
                     if($objNewUser->EMail == $strUser->EMail)
                     {
                         $arrErrors[0] = "Un compte à déjà été enregistré avec cet e-mail";
-                        $alreadyExist = true;
+                        $problemDetected = true;
                     }
                 }
-                if ($alreadyExist == false){
+                if ($problemDetected == false){
                     $objNewUserModel->save($objNewUser);
                     return redirect()->to('/Homepage');
                 }
