@@ -97,4 +97,11 @@ class SuperHeroesListController extends BaseController
         $this->_data['form_close'] = form_close();
         $this->display('addhero.tpl');
     }
+
+    public function deleteHero($intId)
+    {
+        $objSuperHeroModel = new SuperHeroes_model();
+        $objSuperHeroModel->delete($intId);
+        return redirect()->to('/Homepage');
+    }
 }
