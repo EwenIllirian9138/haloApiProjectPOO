@@ -15,7 +15,7 @@ class SuperHeroesListController extends BaseController
 
         $objSuperHeroModel = new SuperHeroes_model();
 
-        $data['title'] = "Liste des supers heros";
+        $data['title'] = "Tous les Super-Héros";
 
         $data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
 
