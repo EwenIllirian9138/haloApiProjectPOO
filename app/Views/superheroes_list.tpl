@@ -69,8 +69,8 @@
 
 {block name="content"}
 <div>
-    <a href="{site_url('/SuperHeroesListController/addHero')}">Ajouter</a>
     <div style="float:left; width: 50%; padding: 20px">
+        <a href="{site_url('/SuperHeroesListController/addHero')}">Ajouter</a>
         <table id="SuperHeroesList" class="display" style="width:100%;">
             <thead>
             <tr>

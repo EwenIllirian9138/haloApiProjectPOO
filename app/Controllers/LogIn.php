@@ -68,7 +68,7 @@ Class LogIn extends BaseController
         $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName", ["class" => "col-sm-2 col-form-label"]);
         $this->_data['form_username'] = form_input("UserName", "", "class=form-control");
         $this->_data['label_password'] = form_label("Mot de Passe", "Password", ["class" => "col-sm-2 col-form-label"]);
-        $this->_data['form_password'] = form_input("Password", "", "class=form-control");
+        $this->_data['form_password'] = form_input("Password", "", "class=form-control", 'password');
         $this->_data['form_submit'] = form_submit("submit", "Envoyer","class= btn-primary");
         $this->_data['form_close'] = form_close();
         //echo view('signin_view.php', $this->_data);
