@@ -59,6 +59,7 @@
             $('#AlignmentLabel').text(data[7])
             $('#IdHero').val(data[8])
             $('#EditButton').prop('disabled', false)
+            $('#DeleteButton').prop('disabled', false)
         } );
     } );
 </script>
@@ -118,7 +119,7 @@
 
         <form method="POST" action="/SuperHeroesListController/deleteHero">
             <input type="number" value="test" id="IdHero" name="id" hidden>
-            <input type="submit" id='EditButton' value="Supprimer" disabled>
+            <input type="submit" id='DeleteButton' value="Supprimer" disabled>
         </form>
 
     </div>
