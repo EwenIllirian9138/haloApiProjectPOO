@@ -48,6 +48,10 @@
             },
             {
                 "targets": [ 8 ],
+                "visible": false
+            },
+            {
+                "targets": [ 9 ],
                 "orderable": false
             }
             ]
@@ -63,6 +67,7 @@
             $('#PlaceOfBirthLabel').text(data[5])
             $('#FirstAppearanceLabel').text(data[6])
             $('#AlignmentLabel').text(data[7])
+            $('#IdHero').val(data[8])
             $('#EditButton').prop('disabled', false)
         } );
     } );
@@ -81,6 +86,7 @@
                 <th>PlaceOfBirth</th>
                 <th>FirstAppearance</th>
                 <th>Alignment</th>
+                <th>IdSuperHero</th>
                 <th></th>
             </tr>
             </thead>
@@ -95,6 +101,7 @@
                     <td><?php echo $row->PlaceOfBirth;?></td>
                     <td><?php echo $row->FirstAppearance;?></td>
                     <td><?php echo $row->Alignment;?></td>
+                    <td><?php echo $row->IdSuperHero;?></td>
                     <td></td>
                 </tr>
             <?php } ?>
@@ -103,7 +110,7 @@
     </div >
 
     <div style="margin-left : 55%; padding-left: 0px; position : fixed">
-        <h1  id="NomTitle">Sélectionnez un héro pour afficher plus de détails</h1>
+        <h1  id="NomTitle">Sélectionnez un Super-Héros</h1>
         <img id='ImageHero' src="" width="200"> <br />
         <label>Nom : </label> <label id="NomLabel"></label> <br />
         <label>Alter ego : </label> <label id="AlterEgoLabel"></label> <br />
@@ -111,8 +118,10 @@
         <label>Lieu de naissance : </label> <label id="PlaceOfBirthLabel"></label> <br />
         <label>Première apparition : </label> <label id="FirstAppearanceLabel"></label> <br />
         <label>Alignement : </label> <label id="AlignmentLabel"></label> <br /><br />
-        <form method="POST" action="EditForm.php">
-            <button id="EditButton" disabled> Modifier </button>
+
+        <form method="POST" action="EditController/goToForm">
+            <input type="number" value="test" id="IdHero" name="id" hidden>
+            <input type="submit" id='EditButton' value="Modifier" disabled>
         </form>
 
     </div>
