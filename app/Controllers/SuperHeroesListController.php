@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Entities\SuperHeroes_entity;
 use CodeIgniter\Controller;
 use App\Models\SuperHeroes_model;
 
@@ -15,11 +14,12 @@ class SuperHeroesListController extends BaseController
 
         $objSuperHeroModel = new SuperHeroes_model();
 
-        $data['title'] = "Tous les Super-Héros";
+        $this->_data['title'] = "Tous les Super-Héros";
 
-        $data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
 
-        echo view ('superHeroes_list',$data);
+        $this->_data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
+        $this->display('superHeroes_list.tpl');
+        //echo view ('superHeroes_list',$data);
 
     }
 
@@ -53,7 +53,7 @@ class SuperHeroesListController extends BaseController
             $model -> save($data);
         }
     }
-
+  
     public function addHero()
     {
         helper('form');
@@ -104,4 +104,5 @@ class SuperHeroesListController extends BaseController
         $objSuperHeroModel->delete($intId);
         return redirect()->to('/Homepage');
     }
+
 }
