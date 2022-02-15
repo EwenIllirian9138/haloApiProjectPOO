@@ -58,8 +58,10 @@
             $('#FirstAppearanceLabel').text(data[6])
             $('#AlignmentLabel').text(data[7])
             $('#IdHero').val(data[8])
+            $('#IdHeroDelete').val(data[8])
             $('#EditButton').prop('disabled', false)
             $('#DeleteButton').prop('disabled', false)
+            $('#AddButton').prop('disabled', false)
         } );
     } );
 </script>
@@ -67,6 +69,7 @@
 
 {block name="content"}
 <div>
+    <a href="{site_url('/SuperHeroesListController/addHero')}">Ajouter</a>
     <div style="float:left; width: 50%; padding: 20px">
         <table id="SuperHeroesList" class="display" style="width:100%;">
             <thead>
@@ -112,13 +115,13 @@
         <label>Première apparition : </label> <label id="FirstAppearanceLabel"></label> <br />
         <label>Alignement : </label> <label id="AlignmentLabel"></label> <br /><br />
 
-        <form method="POST" action="/EditController/goToForm">
+        <form method="POST" action="/SuperHeroesListController/goToForm">
             <input type="number" value="test" id="IdHero" name="id" hidden>
             <input type="submit" id='EditButton' value="Modifier" disabled>
         </form>
 
         <form method="POST" action="/SuperHeroesListController/deleteHero">
-            <input type="number" value="test" id="IdHero" name="id" hidden>
+            <input type="number" value="test" id="IdHeroDelete" name="id" hidden>
             <input type="submit" id='DeleteButton' value="Supprimer" disabled>
         </form>
 
