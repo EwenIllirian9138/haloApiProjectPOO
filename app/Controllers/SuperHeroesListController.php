@@ -76,6 +76,7 @@ class SuperHeroesListController extends BaseController
         }
 
         $this->_data['title'] = "Ajouter un héros";
+        $this->_data['arrErrors'] = $arrErrors;
         $this->_data['form_open'] = form_open('/SuperHeroesListController/addHero');
         $this->_data['label_name'] = form_label("Nom", "Name");
         $this->_data['form_name'] = form_input("Name", "", "id='Name'");
