@@ -85,7 +85,7 @@ class SuperHeroesListController extends BaseController
         $this->_data['label_aliases'] = form_label("Alias", "Aliases");
         $this->_data['form_aliases'] = form_input("Aliases", "", "id='Aliases'");
         $this->_data['label_placeofbirth'] = form_label("Lieu de Naissance", "PlaceOfBirth");
-        $this->_data['form_placeofbirth'] = form_input("PlaceofBirth", "", "id='PlaceOfBirth'");
+        $this->_data['form_placeofbirth'] = form_input("PlaceOfBirth", "", "id='PlaceOfBirth'");
         $this->_data['label_firstappearance'] = form_label("Première Apparition", "FirstAppearance");
         $this->_data['form_firstappearance'] = form_input("FirstAppearance", "", "id='FirstAppearance'");
         $this->_data['label_alignment'] = form_label("Alignement", "Alignment");

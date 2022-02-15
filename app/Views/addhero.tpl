@@ -8,7 +8,7 @@
     {$label_alterego}
     {$form_alterego}
     {$label_aliases}
-    {$form_alterego}
+    {$form_aliases}
     {$label_placeofbirth}
     {$form_placeofbirth}
     {$label_firstappearance}
