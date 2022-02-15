@@ -62,14 +62,14 @@ Class LogIn extends BaseController
         }
         $this->_data['arrErrors'] = $arrErrors;
 
-        $this->_data['form_open'] = form_open(site_url('/LogIn/signIn'));
-        $this->_data['label_email'] = form_label("Email", "EMail");
-        $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
-        $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
-        $this->_data['form_username'] = form_input("UserName", "", "id='UserName'");
-        $this->_data['label_password'] = form_label("Mot de Passe", "Password");
-        $this->_data['form_password'] = form_input("Password", "", "id='Password'");
-        $this->_data['form_submit'] = form_submit("submit", "Envoyer");
+        $this->_data['form_open'] = form_open(site_url('/LogIn/SignIn'));
+        $this->_data['label_email'] = form_label("Email address", "EMail", ["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_email'] = form_input("EMail", "", "class=form-control");
+        $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName", ["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_username'] = form_input("UserName", "", "class=form-control");
+        $this->_data['label_password'] = form_label("Mot de Passe", "Password", ["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_password'] = form_input("Password", "", "class=form-control");
+        $this->_data['form_submit'] = form_submit("submit", "Envoyer","class= btn-primary");
         $this->_data['form_close'] = form_close();
         //echo view('signin_view.php', $this->_data);
         $this->display( 'signin.tpl');
@@ -105,12 +105,12 @@ Class LogIn extends BaseController
 
         $this->_data['title'] = "Se Connecter";
         $this->_data['arrErrors'] = $arrErrors;
-        $this->_data['form_open'] = form_open(site_url('/LogIn/signUp'));
-        $this->_data['label_email'] = form_label("Email", "EMail");
-        $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
-        $this->_data['label_password'] = form_label("Mot de Passe","Password");
-        $this->_data['form_password'] = form_input("Password", "", "id='Password'", 'password');
-        $this->_data['form_submit'] = form_submit("submit", "Envoyer");
+        $this->_data['form_open'] = form_open(site_url('/LogIn/SignUp'));
+        $this->_data['label_email'] = form_label("Email", "EMail", ["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_email'] = form_input("EMail", "", "class=form-control","email");
+        $this->_data['label_password'] = form_label("Mot de Passe","Password",["class" => "form-label mt-4"]);
+        $this->_data['form_password'] = form_input("Password", "", "class=form-control", 'password');
+        $this->_data['form_submit'] = form_submit("submit", "Envoyer","class= btn-primary");
         $this->_data['form_close'] = form_close();
         //echo view('signup_view.php', $data);
         $this->display( 'signup.tpl');
