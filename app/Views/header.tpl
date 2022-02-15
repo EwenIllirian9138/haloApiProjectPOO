@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>{block name="title"}{/block}</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+    <script type="text/javascript" src="./Libraries/jquery.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -31,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Liste des supers heros</a>
+                    <a class="nav-link" href="{site_url('/SuperHeroesListController/Index')}">Liste des supers heros</a>
                 </li>
                     {if isset( $smarty.session.IsLoggedIn)}
                 <li class="nav-item">

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\SuperHeroes_model;
 
-class SuperHeroesListController extends Controller
+class SuperHeroesListController extends BaseController
 {
     public function index (){
 
@@ -14,11 +14,11 @@ class SuperHeroesListController extends Controller
 
         $objSuperHeroModel = new SuperHeroes_model();
 
-        $data['title'] = "Tous les Super-Héros";
+        $this->_data['title'] = "Tous les Super-Héros";
 
-        $data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
-
-        echo view ('superHeroes_list',$data);
+        $this->_data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
+        $this->display('superHeroes_list.tpl');
+        //echo view ('superHeroes_list',$data);
 
     }
 
