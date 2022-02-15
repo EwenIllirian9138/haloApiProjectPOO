@@ -33,9 +33,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">Liste des supers heros</a>
                 </li>
-                <li class="nav-item">
                     {if isset( $smarty.session.IsLoggedIn)}
-                        Bonjour {$smarty.session.UserName} <a class="nav-link" href="{site_url('/LogIn/LogOut')}">Se déconnecter</a>
+                <li class="nav-item">
+                    <a class="nav-link">Bonjour {$smarty.session.UserName}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{site_url('/LogIn/LogOut')}">Se déconnecter</a>
                 </li>
                     {else}
                 <li class="nav-item">
