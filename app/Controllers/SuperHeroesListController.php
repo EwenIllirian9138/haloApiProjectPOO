@@ -16,6 +16,7 @@ class SuperHeroesListController extends BaseController
 
         $this->_data['title'] = "Tous les Super-Héros";
 
+
         $this->_data['arrSuperHeroes'] = $objSuperHeroModel->findAll();
         $this->display('superHeroes_list.tpl');
         //echo view ('superHeroes_list',$data);
@@ -52,4 +53,56 @@ class SuperHeroesListController extends BaseController
             $model -> save($data);
         }
     }
+  
+    public function addHero()
+    {
+        helper('form');
+
+        $validation = \Config\Services::validation();
+
+        $validation->setRule('Name', 'Nom', 'required');
+
+        $arrErrors = array();
+        if (count($this->request->getPost()) > 0) {
+            if ($validation->run($this->request->getPost())){
+                $objNewSuperHeroModel = new SuperHeroes_model();
+                $objNewSuperHero = new SuperHeroes_entity();
+                $objNewSuperHero->fill($this->request->getPost());
+                $objNewSuperHeroModel->save($objNewSuperHero);
+                return redirect()->to('/Homepage');
+            }else{
+                $arrErrors = $validation->getErrors();
+            }
+        }
+
+        $this->_data['title'] = "Ajouter un héros";
+        $this->_data['arrErrors'] = $arrErrors;
+        $this->_data['form_open'] = form_open('/SuperHeroesListController/addHero');
+        $this->_data['label_name'] = form_label("Nom", "Name",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_name'] = form_input("Name", "", "class=form-control");
+        $this->_data['label_alterego'] = form_label("Alter-Ego", "AlterEgo",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_alterego'] = form_input("AlterEgo", "", "class=form-control");
+        $this->_data['label_aliases'] = form_label("Alias", "Aliases",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_aliases'] = form_input("Aliases", "", "class=form-control");
+        $this->_data['label_placeofbirth'] = form_label("Lieu de Naissance", "PlaceOfBirth",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_placeofbirth'] = form_input("PlaceOfBirth", "", "class=form-control");
+        $this->_data['label_firstappearance'] = form_label("Première Apparition", "FirstAppearance",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_firstappearance'] = form_input("FirstAppearance", "", "class=form-control");
+        $this->_data['label_alignment'] = form_label("Alignement", "Alignment",["class" => "col-sm-2 col-form-label"]);
+        $this->_data['options'] = array('good' => 'Good','bad' => 'Bad','neutral' => 'Neutral');
+        $this->_data['form_alignment'] = form_dropdown("Alignment", $this->_data['options'], 'good', "id='Alignment'");
+        $this->_data['label_imagelink'] = form_label("Lien de l'Image", "ImageLink", ["class" => "col-sm-2 col-form-label"]);
+        $this->_data['form_imagelink'] = form_input("ImageLink", "", "class=form-control");
+        $this->_data['form_submit'] = form_submit("submit", "Envoyer","class= btn-primary");
+        $this->_data['form_close'] = form_close();
+        $this->display('addhero.tpl');
+    }
+
+    public function deleteHero($intId)
+    {
+        $objSuperHeroModel = new SuperHeroes_model();
+        $objSuperHeroModel->delete($intId);
+        return redirect()->to('/Homepage');
+    }
+
 }

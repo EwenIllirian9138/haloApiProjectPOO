@@ -5,62 +5,62 @@
     {$form_open}
     <div class="form-group row">
         <div class="col-sm-10">
-        {$label_name}
+            {$label_name}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$form_name}
+            {$form_name}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$label_alterego}
+            {$label_alterego}
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-10">
-    {$form_alterego}
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-10">
-        {$label_aliases}
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-10">
+    <div class="col-sm-10">
         {$form_alterego}
+    </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            {$label_aliases}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$label_placeofbirth}
+            {$form_aliases}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$form_placeofbirth}
+            {$label_placeofbirth}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$label_firstappearance}
+            {$form_placeofbirth}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$form_firstappearance}
+            {$label_firstappearance}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$label_alignment}
+            {$form_firstappearance}
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        {$form_alignment}
+            {$label_alignment}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            {$form_alignment}
         </div>
     </div>
     <div class="form-group row">

@@ -6,6 +6,7 @@ use App\Entities\SuperHeroes_entity;
 use CodeIgniter\Controller;
 use App\Models\SuperHeroes_model;
 
+
 class EditController extends BaseController
 {
     public function goToForm(){
@@ -17,6 +18,9 @@ class EditController extends BaseController
         $objSuperHeroModel = new SuperHeroes_model();
         $objSuperHero = new SuperHeroes_entity();
         //$data['arrSuperHeroes'] = $objSuperHeroModel->find($_POST['id']);
+
+        $data['title'] = "Modifier un Super-Hero";
+      
         //var_dump($IdSuperHero);die;
         $objSuperHero = $objSuperHeroModel->find($IdSuperHero);
 
@@ -49,24 +53,6 @@ class EditController extends BaseController
             }
         }
 
-        /*$data['arrErrors']      = $arrErrors;
-        $data['form_open']      = form_open("EditController/getForm/".$IdSuperHero);
-        $data['form_id']        = form_hidden("IdSuperHero", $objSuperHero->IdSuperHero??'', "id='IdSuperHero'");
-        $data['label_name']     = form_label("Nom : ", "Name");
-        $data['form_name']      = form_input("Name", $objSuperHero->Name??'', "id='Name'");
-        $data['label_alterego']     = form_label("Alter Ego : ", "AlterEgo");
-        $data['form_alterego']      = form_input("AlterEgo", $objSuperHero->AlterEgo??'', "id='AlterEgo'");
-        $data['label_aliases']     = form_label("Surnom : ", "Aliases");
-        $data['form_aliases']      = form_input("Aliases", $objSuperHero->Aliases??'', "id='Aliases'");
-        $data['label_placeofbirth']     = form_label("Lieu de naissance : ", "PlaceOfBirth");
-        $data['form_placeofbirth']      = form_input("PlaceOfBirth", $objSuperHero->PlaceOfBirth??'', "id='PlaceOfBirth'");
-        $data['label_firstappearance']     = form_label("Première apparition : ", "FirstAppearance");
-        $data['form_firstappearance']      = form_input("FirstAppearance", $objSuperHero->FirstAppearance??'', "id='FirstAppearance'");
-        $data['label_alignment']     = form_label("Alignement : ", "Alignment");
-        $data['form_alignment']      = form_input("Alignment", $objSuperHero->Alignment??'', "id='Alignment'");
-        $data['form_submit']    = form_submit("submit", "Modifier");
-        $data['form_close']     = form_close();*/
-
         $this->_data['title'] = "Ajouter un héros";
         $this->_data['arrErrors'] = $arrErrors;
         $this->_data['form_open'] = form_open("EditController/getForm/".$IdSuperHero);
@@ -90,6 +76,5 @@ class EditController extends BaseController
         $this->_data['form_close'] = form_close();
         $this->display('EditHero.tpl');
 
-        //echo view('EditForm', $data);
     }
 }

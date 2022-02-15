@@ -123,7 +123,6 @@
         <label>Lieu de naissance : </label> <label id="PlaceOfBirthLabel"></label> <br />
         <label>Première apparition : </label> <label id="FirstAppearanceLabel"></label> <br />
         <label>Alignement : </label> <label id="AlignmentLabel"></label> <br /><br />
-
         <form method="POST" action="/EditController/goToForm">
             <input type="number" value="test" id="IdHero" name="id" hidden>
             <input type="submit" id='EditButton' value="Modifier" disabled>
