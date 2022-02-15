@@ -89,12 +89,12 @@ class SuperHeroesListController extends BaseController
         $this->_data['label_firstappearance'] = form_label("Première Apparition", "FirstAppearance");
         $this->_data['form_firstappearance'] = form_input("FirstAppearance", "", "id='FirstAppearance'");
         $this->_data['label_alignment'] = form_label("Alignement", "Alignment");
-        $this->_data['form_alignment'] = form_input("Alignment", "", "id='Alignment'");
+        $this->_data['options'] = array('good' => 'Good','bad' => 'Bad','neutral' => 'Neutral');
+        $this->_data['form_alignment'] = form_dropdown("Alignment", $this->_data['options'], 'good', "id='Alignment'");
         $this->_data['label_imagelink'] = form_label("Lien de l'Image", "ImageLink");
         $this->_data['form_imagelink'] = form_input("ImageLink", "", "id='ImageLink'");
         $this->_data['form_submit'] = form_submit("submit", "Envoyer");
         $this->_data['form_close'] = form_close();
-
         $this->display('addhero.tpl');
     }
 }
