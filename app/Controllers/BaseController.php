@@ -16,6 +16,7 @@ class BaseController extends Controller
     protected $helpers = [];
     protected $_data = [];
     protected $_smarty;
+    protected $session;
 
     /**
      * Constructor.
@@ -24,6 +25,7 @@ class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+        $this->session = session();
 
         //------------------------------------------
         // Preload any models, libraries, etc, here.

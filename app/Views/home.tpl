@@ -10,14 +10,14 @@
         <thead>
         <tr>
             <th scope="col">Nom du héro</th>
-            <th scope="col">Son alter-ego</th>
+            <th scope="col">Son Alter-Ego</th>
             <th scope="col">Alignement</th>
-            <th scope="col">première apparition</th>
-            <th scope="col">représenation</th>
+            <th scope="col">Première Apparition</th>
+            <th scope="col">Représentation</th>
         </tr>
         </thead>
         <tbody>
-        {for $i=1 to 3}
+        {for $i=0 to 2}
         <tr class="table-light">
             <th scope="row">{$arrNewSuperHeroes[$i]->Name}</th>
             <td> {$arrNewSuperHeroes[$i]->AlterEgo}</td>
@@ -28,6 +28,8 @@
          {/for}
         </tbody>
     </table>
+
+
 {/block}
 
 
