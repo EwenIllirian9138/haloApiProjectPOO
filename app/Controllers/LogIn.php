@@ -12,7 +12,7 @@ Class LogIn extends BaseController
     public function index(){}
 
 
-    public function SignIn()
+    public function signIn()
     {
         helper('form');
 
@@ -62,7 +62,6 @@ Class LogIn extends BaseController
         }
         $this->_data['arrErrors'] = $arrErrors;
 
-
         $this->_data['form_open'] = form_open(site_url('/LogIn/SignIn'));
         $this->_data['label_email'] = form_label("Email address", "EMail", ["class" => "col-sm-2 col-form-label"]);
         $this->_data['form_email'] = form_input("EMail", "", "class=form-control");
@@ -76,7 +75,7 @@ Class LogIn extends BaseController
         $this->display( 'signin.tpl');
     }
 
-    public function SignUp()
+    public function signUp()
     {
         helper('form');
 
@@ -117,7 +116,7 @@ Class LogIn extends BaseController
         $this->display( 'signup.tpl');
     }
 
-    public function LogOut()
+    public function logOut()
     {
         $this->session->destroy();
         return redirect()->to('/Homepage');
