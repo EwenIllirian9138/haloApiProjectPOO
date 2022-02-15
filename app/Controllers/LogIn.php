@@ -12,7 +12,7 @@ Class LogIn extends BaseController
     public function index(){}
 
 
-    public function SignIn()
+    public function signIn()
     {
         helper('form');
 
@@ -62,7 +62,7 @@ Class LogIn extends BaseController
         }
         $this->_data['arrErrors'] = $arrErrors;
 
-        $this->_data['form_open'] = form_open(site_url('/LogIn/SignIn'));
+        $this->_data['form_open'] = form_open(site_url('/LogIn/signIn'));
         $this->_data['label_email'] = form_label("Email", "EMail");
         $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
         $this->_data['label_username'] = form_label("Nom d'Utilisateur", "UserName");
@@ -75,7 +75,7 @@ Class LogIn extends BaseController
         $this->display( 'signin.tpl');
     }
 
-    public function SignUp()
+    public function signUp()
     {
         helper('form');
 
@@ -105,7 +105,7 @@ Class LogIn extends BaseController
 
         $this->_data['title'] = "Se Connecter";
         $this->_data['arrErrors'] = $arrErrors;
-        $this->_data['form_open'] = form_open(site_url('/LogIn/SignUp'));
+        $this->_data['form_open'] = form_open(site_url('/LogIn/signUp'));
         $this->_data['label_email'] = form_label("Email", "EMail");
         $this->_data['form_email'] = form_input("EMail", "", "id='EMail'");
         $this->_data['label_password'] = form_label("Mot de Passe","Password");
@@ -116,7 +116,7 @@ Class LogIn extends BaseController
         $this->display( 'signup.tpl');
     }
 
-    public function LogOut()
+    public function logOut()
     {
         $this->session->destroy();
         return redirect()->to('/Homepage');
